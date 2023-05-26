@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "helm-compose"
-version = "0.0.2"
+version = "0.0.3"
 description = "Docker Compose-like functionality for Helm."
 authors = ["Ashutosh Mishra <ashutoshdtu@gmail.com>"]
 license = "MIT"

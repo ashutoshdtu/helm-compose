@@ -100,18 +100,23 @@ define create-tag
 	git push origin v$(strip $(2))
 endef
 
-# bump patch and create git tag with version from poetry
+# Version Bumping Commands
 bump-patch:
 	poetry version patch
-	git tag -a $(shell poetry version -s) -m "Version $(shell poetry version -s)"
-	git push origin $(shell poetry version -s)
+	$(MAKE) git-tag
 
 bump-minor:
 	poetry version minor
-	git tag -a $(shell poetry version -s) -m "Version $(shell poetry version -s)"
-	git push origin $(shell poetry version -s)
+	$(MAKE) git-tag
 
 bump-major:
 	poetry version major
+	$(MAKE) git-tag
+
+# Git Commands
+git-tag:
+	git add pyproject.toml
+	git commit -m "Bump version to $(shell poetry version -s)"
+	git push origin master
 	git tag -a $(shell poetry version -s) -m "Version $(shell poetry version -s)"
 	git push origin $(shell poetry version -s)
