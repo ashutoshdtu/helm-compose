@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "helm-compose"
+version = "0.0.1"
+description = "Docker Compose-like functionality for Helm."
+authors = ["Ashutosh Mishra <ashutoshdtu@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/ashutoshdtu/helm-compose"
+packages = [{include = "helm_compose"}]
+maintainers = ["Ashutosh Mishra <ashutoshdtu@gmail.com>"]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10"
+]
+keywords = ["helm", "kubernetes", "docker-compose", "docker"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fire = "^0.5.0"
+rich = "^13.3.5"
+helmpy = "^0.1.0rc20190802075106"
+pydantic = "^1.10.8"
+kubernetes = "^26.1.0"
+pyyaml = "^6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+mypy = "^1.3.0"
+flake8 = "^6.0.0"
+black = "^23.3.0"
+pre-commit = "^3.3.2"
+coverage = "^7.2.6"
+sphinx = "^7.0.1"
+isort = "^5.12.0"
+sphinx-autodoc-typehints = "^1.23.0"
+pre-commit-hooks = "^4.4.0"
+blacken-docs = "^1.13.0"
+
+[build-system]
+requires = ["poetry-core", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+
+[tool.poetry.scripts]
+helm-compose = "cli:main"
+
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
