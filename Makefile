@@ -103,10 +103,15 @@ endef
 # bump patch and create git tag with version from poetry
 bump-patch:
 	poetry version patch
-	
+	git tag -a $(shell poetry version -s) -m "Version $(shell poetry version -s)"
+	git push origin $(shell poetry version -s)
 
 bump-minor:
 	poetry version minor
+	git tag -a $(shell poetry version -s) -m "Version $(shell poetry version -s)"
+	git push origin $(shell poetry version -s)
 
 bump-major:
 	poetry version major
+	git tag -a $(shell poetry version -s) -m "Version $(shell poetry version -s)"
+	git push origin $(shell poetry version -s)
