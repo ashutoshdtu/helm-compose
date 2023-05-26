@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "helm-compose"
-version = "0.0.1"
+version = "0.0.2"
 description = "Docker Compose-like functionality for Helm."
 authors = ["Ashutosh Mishra <ashutoshdtu@gmail.com>"]
 license = "MIT"
@@ -46,15 +46,9 @@ pre-commit-hooks = "^4.4.0"
 blacken-docs = "^1.13.0"
 
 [build-system]
-requires = ["poetry-core", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
 helm-compose = "cli:main"
-
-
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-style = "semver"
